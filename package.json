@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "dev_local": "NODE_ENV_HOST=localhost ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "dev_docker": "NODE_ENV_HOST=database_ignite ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "typeorm": "NODE_ENV_HOST=database_ignite ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "test": "NODE_ENV_HOST=localhost NODE_ENV=test jest --runInBand --detectOpenHandles --config --forceExit",
-    "seed:admin": "NODE_ENV_HOST=database_ignite ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts"
+    "dev_local": "ENV_IN=DEV ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "dev_docker": "ENV_IN=DEV ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "typeorm": "ENV_IN=DEV  ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
+    "test": "ENV_IN=DEV NODE_ENV=test jest --runInBand --detectOpenHandles --config --forceExit",
+    "seed:admin": "ENV_IN=DEV ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -75,4 +75,5 @@
     "typescript": "^4.6.3",
     "uuid": "^8.3.2"
   }
+
 }

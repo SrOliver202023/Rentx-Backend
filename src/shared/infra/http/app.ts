@@ -13,7 +13,7 @@ import swaggerFile from '../../../swagger.json';
 
 import "@shared/container";
 
-createConnection(process.env.NODE_ENV);
+createConnection();
 
 const app = express();
 

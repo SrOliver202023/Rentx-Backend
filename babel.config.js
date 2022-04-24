@@ -1,3 +1,4 @@
+
 module.exports = {
   presets: [
     ["@babel/preset-env", { targets: { node: "current" } }],
@@ -19,6 +20,6 @@ module.exports = {
     "babel-plugin-transform-typescript-metadata",
     ["@babel/plugin-proposal-decorators", { legacy: true }],
     ["@babel/plugin-proposal-class-properties", { loose: true }],
-    ['@babel/plugin-transform-typescript', { isTSX: true, allExtensions: true, allowNamespaces: true }],
+    // ['@babel/plugin-transform-typescript', { isTSX: true, allExtensions: true, allowNamespaces: true }],
   ],
 };

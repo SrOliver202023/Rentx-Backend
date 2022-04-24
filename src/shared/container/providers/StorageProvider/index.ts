@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 import { container } from "tsyringe";
 import { LocalStorageProvider } from "./Implementations/LocalStorageProvider";
 import { S3StorageProvider } from "./Implementations/S3StorageProvider";
