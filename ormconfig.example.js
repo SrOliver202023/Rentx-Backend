@@ -1,20 +1,24 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+const rootDir = process.ENV_IN === 'DEV' ? './src' : './dist';
+const extension = process.ENV_IN === 'DEV' ? '.ts' : '.js';
+console.log(`Environments: ${process.env.ENV_IN}`);
+
 module.exports = {
   "type": "postgres",
   "port": 5432,
-  "host": process.env.NODE_ENV_HOST,
+  "host": "localhost",
   "username": process.env.DB_USER,
   "password": process.env.DB_PASSWORD,
   "database": process.env.DB_DATABASE,
   "migrations": [
-    "./src/shared/infra/typeorm/migrations/*.ts"
+    `${rootDir}/shared/infra/typeorm/migrations/*${extension}`
   ],
   "entities": [
-    "./src/modules/**/entities/*.ts"
+    `${rootDir}/modules/**/entities/*${extension}`
   ],
   "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    "migrationsDir": `${rootDir}/shared/infra/typeorm/migrations`
   }
 };
