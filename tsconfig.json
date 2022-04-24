@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@modules/*": [
+        "modules/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@errors/*": [
+        "errors/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // Garante que arquivos .d.ts são criados pelo tsc, mas não arquivos .js
+    // "declaration": true,
+    // "emitDeclarationOnly": true,
+    // Garante que o Babel pode transpilar de maneira segura os arquivos no projeto TypeScript
+    // "isolatedModules": true,
+    // Search under node_modules for non-relative imports.
+    // "moduleResolution": "node",
+    // Process & infer types from .js files.
+    // "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    // "noEmit": true,
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+    // "strict": true,
+  },
+  "include": [
+    "src" // <-- change this to where your source files are
+  ]
+}

@@ -1,0 +1,706 @@
+{
+	"info": {
+		"_postman_id": "dc58efb5-1cbf-4114-a6de-0f2575577558",
+		"name": "rentX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "SendForgotMail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\":\"sroliver201923@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/password/forgot/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"password",
+								"forgot",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"1234\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/password/reset?token={{userTOKEN}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"password",
+								"reset"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rentals",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/rentals/user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rentals",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Devolution",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rentals/devolution/daeda5cd-976b-4aec-9edf-7009969a0b80",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rentals",
+								"devolution",
+								"daeda5cd-976b-4aec-9edf-7009969a0b80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"car_id\":\"bb19f3f9-32e2-48a6-9f92-41470d2d4f21\",\r\n\t\"expected_return_date\": \"2022-03-15T12:00:00.379Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rentals",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Import",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/import",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\":\"Cavalos Premium\", \r\n\t\"description\":\"Uma máquina linda de bunita fiu fiu...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specifications",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/specifications",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"specifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n\t\"name\":\"Specification Test\", \r\n\t\"description\":\"Description test\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/specifications",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"specifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Images",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"contentType": "",
+									"type": "file",
+									"src": [
+										"/C:/Users/SrOliver/Pictures/Car-1.jpg",
+										"/C:/Users/SrOliver/Pictures/Car-2.jpg",
+										"/C:/Users/SrOliver/Pictures/Car-3.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/cars/images/bb19f3f9-32e2-48a6-9f92-41470d2d4f21",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cars",
+								"images",
+								"bb19f3f9-32e2-48a6-9f92-41470d2d4f21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\":\"Celta\",\r\n\t\"description\":\"Carro quadrado\",\r\n\t\"daily_rate\":\"100\",\r\n\t\"license_plate\":\"TUZ-431\",\r\n\t\"fine_amount\":\"200\",\r\n\t\"brand\":\"Quand\",\r\n\t\"category_id\":\"5649c394-0cd0-40ff-ae25-e4e57965feb6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cars",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"specifications_id\":\"f4d74bff-1ee2-4366-893f-9026e3a0d17b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cars/specifications/id-car",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cars",
+								"specifications",
+								"id-car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n\t\"brand\":\"\", \r\n\t\"name\":\"\", \r\n\t\"category_id\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cars/available",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cars",
+								"available"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/SrOliver/Pictures/Car-1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/avatar",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\":\"Emmerson Oliveira\", \r\n\t\"email\":\"sroliver201923@gmail.com\",\r\n\t\"password\":\"sroliver201923\",\r\n\t\"driver_license\":\"ABCD12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"token\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/refresh-token",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SessionAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\":\"admin@rentx.com.br\",\r\n\t\"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\":\"sroliver201923@gmail.com\",\r\n\t\"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3333",
+			"type": "string"
+		},
+		{
+			"key": "userTOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDc3MTMwMTgsImV4cCI6MTY0NzcxMzkxOCwic3ViIjoiMmRjOTIzZjItMjAxMS00Nzk0LWI0MzctNGMyZGJmODNkOGZmIn0.G16ZRflD6A57rYvKt0jTYQj1gd0u9P41-vcats9nXZs",
+			"type": "string"
+		},
+		{
+			"key": "admTOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTA3NTQ5NzUsImV4cCI6MTY1MDc1NTg3NSwic3ViIjoiYTlhNTdlYzEtZDIxMy00ZDM2LWE5NzItMjIxZjk3MWYwOTJlIn0.20USeramt7LAPEf_O7gtYxv2jBPyWQAQT6xQW1ULceU",
+			"type": "string"
+		}
+	]
+}
