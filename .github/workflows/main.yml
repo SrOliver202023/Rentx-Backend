@@ -44,4 +44,10 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            cd ~/apps/Rentx-Backend
+            yarn
+            ./node_modules/.bin/typeorm migration:run
+            pm2 restart Rentx-Backend
+            
           
