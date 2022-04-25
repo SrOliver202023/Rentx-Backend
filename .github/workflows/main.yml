@@ -1,7 +1,6 @@
 name: CI
 
 on:
-
   push:
     branches: [ main ]
 
@@ -17,7 +16,7 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: 16.14.2
+          node-version: 16.x
           
       - name: Install Dependences
         run: yarn 
@@ -29,6 +28,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ Secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "., !node_modules"
