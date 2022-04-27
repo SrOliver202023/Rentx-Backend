@@ -12,6 +12,7 @@ import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 
 import cors from 'cors';
+import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
 
 import "@shared/container";
 
@@ -20,6 +21,7 @@ createConnection();
 const app = express();
 
 app.use(cors());
+app.use(rateLimiter);
 app.use(express.json());
 
 app.use('/cars', express.static(`${upload.tmpFolder}/cars/`));
