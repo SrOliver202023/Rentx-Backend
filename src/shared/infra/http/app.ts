@@ -11,12 +11,15 @@ import swaggerUi from 'swagger-ui-express';
 import { router } from './routes';
 import swaggerFile from '../../../swagger.json';
 
+import cors from 'cors';
+
 import "@shared/container";
 
 createConnection();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/cars', express.static(`${upload.tmpFolder}/cars/`));
