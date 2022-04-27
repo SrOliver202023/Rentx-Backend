@@ -1,14 +1,13 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const rootDir = process.ENV_IN === 'DEV' ? './src' : './dist';
-const extension = process.ENV_IN === 'DEV' ? '.ts' : '.js';
-console.log(`Environments: ${process.env.ENV_IN}`);
+const rootDir = process.env.ENV_IN === 'DEV' ? './src' : './dist';
+const extension = process.env.ENV_IN === 'DEV' ? '.ts' : '.js';
 
 module.exports = {
   "type": "postgres",
-  "port": 5432,
-  "host": "localhost",
+  "port": process.env.DB_PORT,
+  "host": process.env.DB_HOST,
   "username": process.env.DB_USER,
   "password": process.env.DB_PASSWORD,
   "database": process.env.DB_DATABASE,
